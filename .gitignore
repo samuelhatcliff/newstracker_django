@@ -1,0 +1,28 @@
+# Ignore pyc files
+*.pyc
+
+# Ignore __pycache__ directories
+__pycache__/
+
+# Ignore Django settings file
+*.env
+
+# Ignore Django database file
+db.sqlite3
+
+# Ignore Django static files
+staticfiles/
+
+# Ignore Django media files
+media/
+
+# Ignore pipenv lock files
+Pipfile.lock
+
+# Ignore virtual environment directories
+env/
+venv/
+.venv/
+
+# Ignore local settings file
+local_settings.py
