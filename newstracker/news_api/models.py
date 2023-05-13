@@ -1,19 +1,19 @@
-import datetime
-
 from django.db import models
 from django.utils import timezone
 
 
 class Story(models.Model):
+    class Meta:
+        db_table = 'Story'
     id = models.AutoField(primary_key=True)
     headline = models.TextField(blank=False)
     source = models.CharField(max_length=255)
     content_preview = models.TextField(blank=True)
     content_full = models.TextField(blank=True)
-    author = models.CharField(max_length=255, blank=True)
+    author = models.CharField(max_length=255, blank=True, null=True)
     description = models.TextField(blank=True)
     url = models.TextField(blank=False)
-    image = models.TextField(blank=True)
+    image = models.TextField(blank=True, null=True)
     published_at = models.DateTimeField(blank=True, null=True)
     sub = models.TextField(blank=True)
     pol = models.TextField(blank=True)
@@ -23,10 +23,12 @@ class Story(models.Model):
 
 
     def __str__(self):
-        return f"ID: {self.id}, User_ID: {self.user_id} H:{self.headline}, S:{self.source}"
+        return f"ID: {self.id}, H:{self.headline}, S:{self.source}"
 
 
 class Query(models.Model):
+    class Meta:
+        db_table = 'Query'
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     source = models.CharField(max_length=255, blank=True)
